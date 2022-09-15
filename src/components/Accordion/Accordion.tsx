@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 
-type AccordionType = {
+export type AccordionType = {
     title: string
-    // collapsed: boolean
+    collapsed: boolean
+    onChange: (collapsed: boolean)=>void
 }
 
 
@@ -23,7 +24,7 @@ type AccordionTitleType = {
 
 function AccordionTitle(props: AccordionTitleType) {
     return (<>
-        <h3 onClick={()=>{props.onClick()}}>--{props.title}--</h3>
+        <h3 onClick={(e)=>{props.onClick()}}>--{props.title}--</h3>
     </>)
 }
 

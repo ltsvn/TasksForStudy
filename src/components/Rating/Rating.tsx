@@ -2,8 +2,10 @@ import React, {useState} from "react";
 
 
 type RatingProps = {
-    // value: number
+    value: number
+    onClick: (value: number)=> void
 }
+
 
 
 export function Rating(props: RatingProps) {
