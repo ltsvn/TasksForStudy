@@ -22,8 +22,7 @@ function App() {
             {/*<PageTitle title={'This App component'}/>*/}
 
             <Accordion titleValue={'Menu'} color='black' collapsed={accordionCollapsed} onChange={() => {
-                setAccordionCollapsed(!accordionCollapsed)
-            }}/>
+                setAccordionCollapsed(!accordionCollapsed)}} items={[]} onClick={()=>{}}/>
 
             {/*<Accordion titleValue={'Users'} color='black' collapsed={false}/>*/}
 
