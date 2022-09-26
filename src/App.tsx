@@ -1,30 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAcordion";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 function App() {
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    let [switchOn, setSwitchOn] = useState<boolean>(false)
+
     return (
         <div className="App">
-            <OnOff />
+
+            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+
             {/*<PageTitle title={'This App component'}/>*/}
-            {/*Article 1*/}
-            {/*<Rating value={3}/>*/}
-            <Accordion title={'Menu'} />
-            <Accordion title={'Users'} />
-            {/*Article 2*/}
-            <Rating />
-            {/*<Rating value={1}/>*/}
-            {/*<Rating value={2}/>*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
+
+            <Accordion titleValue={'Menu'} color='black' collapsed={accordionCollapsed} onChange={() => {
+                setAccordionCollapsed(!accordionCollapsed)
+            }}/>
+
+            {/*<Accordion titleValue={'Users'} color='black' collapsed={false}/>*/}
+
+            <UncontrolledAccordion titleValue={'Menu'}/>
+
+            {/*<UncontrolledAccordion titleValue={'Users'} />*/}
+
+            {/*<UncontrolledRating />*/}
+
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+
         </div>
     );
 }
+
 type PageTitleType = {
-    title:string
+    title: string
 }
 
 
