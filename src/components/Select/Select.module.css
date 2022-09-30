@@ -14,4 +14,7 @@
 .item .selected {
     background-color: blue;
     color: white;
+}.item .selected {
+    background-color: blue;
+    color: white;
 }
