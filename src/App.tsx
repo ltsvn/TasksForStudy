@@ -17,22 +17,22 @@ function App() {
         <div className="App">
 
             {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
-            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            {/*<UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}*/}
 
             {/*<PageTitle title={'This App component'}/>*/}
 
-            <Accordion titleValue={'Menu'} color='black' collapsed={accordionCollapsed} onChange={() => {
-                setAccordionCollapsed(!accordionCollapsed)}} items={[]} onClick={()=>{}}/>
+            {/*<Accordion titleValue={'Menu'} color='black' collapsed={accordionCollapsed} onChange={() => {*/}
+            {/*    setAccordionCollapsed(!accordionCollapsed)}} items={[]} onClick={()=>{}}/>*/}
 
             {/*<Accordion titleValue={'Users'} color='black' collapsed={false}/>*/}
 
-            <UncontrolledAccordion titleValue={'Menu'}/>
+            {/*<UncontrolledAccordion titleValue={'Menu'}/>*/}
 
             {/*<UncontrolledAccordion titleValue={'Users'} />*/}
 
             {/*<UncontrolledRating />*/}
 
-            <Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
 
         </div>
     );

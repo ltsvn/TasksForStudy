@@ -1,33 +1,23 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useReducer, useState} from "react";
+import {reducer, TOGGLE_CONSTANT} from "./Reducer";
 
 export type AccordionPropsType = {
     titleValue: string
-    //collapsed: boolean
-    // onChange: () => void
-    /**
-     * elements that are showed when accordion is opened(not collapsed
-     */
-    // items: ItemType[]
-    /**
-     * Callback that is called when any item clicked
-     * @param value is value of clicked item
-     */
-    // onClick: (value: any) => void
-    /**
-     * optional Color of header text
-     */
     color?: string
-
 }
 
 
 
 export function UncontrolledAccordion(props: AccordionPropsType) {
-    let [collapsed, setCollapsed] = useState<boolean>(false)
+    //let [collapsed, setCollapsed] = useState(false)
+    let [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     return (<>
-        <AccordionTitle title={props.titleValue} color={props.color} onClick={()=> setCollapsed(!collapsed)}/>
-        {!collapsed && <AccordionBody/>}
+        {/*<AccordionTitle title={props.titleValue} color={props.color} onClick={()=> setCollapsed(!collapsed)}/>*/}
+        <AccordionTitle title={props.titleValue} color={props.color} onClick={() => {
+            dispatch({type: TOGGLE_CONSTANT})
+        }}/>
+        {!state.collapsed && <AccordionBody/>}
     </>)
 }
 
@@ -42,8 +32,8 @@ function AccordionTitle(props: AccordionTitleType) {
         <h3
             style={{color: props.color ? props.color : 'black'}}
             onClick={(e) => {
-            props.onClick()
-        }}>--{props.title}--</h3>
+                props.onClick()
+            }}>--{props.title}--</h3>
     </>)
 }
 
